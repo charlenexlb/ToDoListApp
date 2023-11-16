@@ -1,0 +1,19 @@
+{
+  "name": "to_do_list_app",
+  "version": "1.0.0",
+  "description": "Task list application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/charlenexlb/ToDoListApp.git"
+  },
+  "author": "Charlene Bakker",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charlenexlb/ToDoListApp/issues"
+  },
+  "homepage": "https://github.com/charlenexlb/ToDoListApp#readme"
+}
