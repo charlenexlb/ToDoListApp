@@ -11,7 +11,7 @@ const createWindow = () => {
         }
     })
 
-    mainWindow.loadFile('index.html')
+    mainWindow.loadFile('./client/index.html')
 }
 
 app.whenReady().then(() => {
@@ -26,4 +26,3 @@ app.whenReady().then(() => {
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })
-
