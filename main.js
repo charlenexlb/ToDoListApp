@@ -1,6 +1,7 @@
 // Modules to control app life nd create native browser window
-const {app, BrowserWindow} = require('electron')
-const path = require('node:path')
+import {app, BrowserWindow} from 'electron';
+// const path = require('node:path')
+import path from 'node:path';
 
 const createWindow = () => {
     const mainWindow = new BrowserWindow({

@@ -1,9 +1,8 @@
-class Task{
-    title;
-    description;
+import mongoose from "mongoose"
 
-    constructor(title, description){
-        this.title = title;
-        this.description = description;
-    }
-}
+const TaskSchema = mongoose.Schema({
+    title: String,
+    description: String,
+})
+
+export default mongoose.model("Task", TaskSchema)
