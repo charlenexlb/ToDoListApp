@@ -1,0 +1,54 @@
+
+.todo-app{
+    background-color: #F4EAE0;
+    max-width: 540px;
+    margin: 100px auto 20px;
+    padding: 40px 30px;
+    border-radius: 10px;
+}
+.todo-app h2{
+    text-align: center;
+}
+hr{
+    position: relative;
+        top: 20px;
+        border: none;
+        height: 1px;
+        background: black;
+        margin-bottom: 50px;
+        border-top: 3px double #8c8b8b;
+}
+#inputTask{
+    background: transparent;
+    border: transparent;
+    background-color: #EADBC8;
+    list-style-type: none;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 10px 8px 10px 20px;
+    font-weight: bold;
+}
+button{
+    margin-left: 430px;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 40px;
+    background-color: #FAF6F0;
+    font-size: 13px;
+    font-weight: bold;
+    border: 1px solid #B0A695;
+}
+button:hover{
+    background-color: #EBE3D5;
+}
+ul li{
+    background-color: #EADBC8;
+    list-style-type: none;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    padding: 12px 8px 12px 40px;
+    font-weight: bold;
+}

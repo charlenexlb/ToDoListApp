@@ -35,8 +35,6 @@ router.get("/tasks/:id", async (req, res) => {
     }
 });
 
-export default router;
-
 // PATCH endpoint, which will update existing task data
 router.patch("/tasks/:id", async (req, res) => {
     try {
@@ -63,3 +61,5 @@ router.delete("/tasks/:id", async (req, res) => {
         res.status(500).send({error})
     }
 });
+
+export default router;
