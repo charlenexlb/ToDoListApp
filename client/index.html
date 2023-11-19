@@ -3,20 +3,31 @@
   <head>
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <!-- https://www.youtube.com/watch?v=DJjenhzqBHk&ab_channel=TheCodeCreative -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">  Idk waarvoor dit is-->
     <link rel="stylesheet" href="../client/css/style.css">
-    <title>Hello World!</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    <title>To Do List</title>
   </head>
   <body>
     <div class="todo-app">
       <h2>To-Do List</h2>
       <hr>
-      <div class="row">
-        <button id="addBtn">Add</button>
+
+      <div x-data="{ todos: [], userInput: ''}">
+          <input id="userInput" x-model="userInput" placeholder="Enter task.." type="text">
+          <button id="addBtn" @click="if(userInput.trim().length > 0) 
+          todos.push({name: userInput, completed: false}); userInput = '' ">Add</button>
+
+        <template x-for="todo in todos">
+          <div class="todoList">
+            <input id="checkbox" type="checkbox" x-model="todo.completed">
+            <span id="taskItem" x-text="todo.name" x-bind:class="{'completed': todo.completed}"></span>
+            <button id="deleteBtn" @click="todos = todos.filter((currTodo) => currTodo != todo)">X</button>
+          </div>
+        </template>
+
       </div>
-      <ul id="tasklist">
-      </ul>
     </div>
-  <script src="script.js"></script>
   </body>
 </html>
