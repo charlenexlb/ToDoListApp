@@ -1,4 +1,4 @@
-import mongoose from "mongoose"
+const mongoose = require('mongoose')
 
 const TaskSchema = new mongoose.Schema({
     title: {
@@ -7,8 +7,11 @@ const TaskSchema = new mongoose.Schema({
     },
     description: {
         type: String
+    }, 
+    checked: {
+        type: Boolean
     }
 });
 
 // mongoose.model() compiles a model given schema 
-export default mongoose.model("Task", TaskSchema)
+module.exports = mongoose.model("Task", TaskSchema)

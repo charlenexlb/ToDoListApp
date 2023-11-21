@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <!-- https://www.youtube.com/watch?v=DJjenhzqBHk&ab_channel=TheCodeCreative -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">  Idk waarvoor dit is-->
     <link rel="stylesheet" href="../client/css/style.css">
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <title>To Do List</title>
@@ -12,12 +11,11 @@
   <body>
     <div class="todo-app">
       <h2>To-Do List</h2>
-      <hr>
+      <hr class="divider">
 
       <div x-data="{ todos: [], userInput: ''}">
           <input id="userInput" x-model="userInput" placeholder="Enter task.." type="text">
-          <button id="addBtn" @click="if(userInput.trim().length > 0) 
-          todos.push({name: userInput, completed: false}); userInput = '' ">Add</button>
+          <button id="addBtn" @click="addTask">Add</button>
 
         <template x-for="todo in todos">
           <div class="todoList">
@@ -29,5 +27,6 @@
 
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

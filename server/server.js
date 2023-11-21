@@ -1,7 +1,8 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import connectDB from './database.js';
-import TaskController from "./TaskController.js";
+const express = require("express");
+const bodyParser = require("body-parser");
+const {connectDB} = require("./database.js");
+// import connectDB from './database.js';
+const TaskController = require("./TaskController.js");
 
 //Connect to Express server
 const app = express();
