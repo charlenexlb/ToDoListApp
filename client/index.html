@@ -21,7 +21,7 @@
           <div class="todoList">
             <input id="checkbox" type="checkbox" x-model="todo.completed">
             <span id="taskItem" x-text="todo.name" x-bind:class="{'completed': todo.completed}"></span>
-            <button id="deleteBtn" @click="todos = todos.filter((currTodo) => currTodo != todo)">X</button>
+            <button id="deleteBtn" @click="deleteTask">X</button>
           </div>
         </template>
 

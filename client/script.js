@@ -14,7 +14,7 @@ function addTask(){
         // POST request to the server
         const task = {
             title: userInput,
-            isComplete: false
+            checked: false
         };
         fetch('http://localhost:3000/api/tasks', {
             method: 'POST',
@@ -23,14 +23,20 @@ function addTask(){
             },
             body: JSON.stringify(task)
         }).then(response => response.json())
-        // .then(data => {
-        //     document.getElementById('userInput').value = '';
-        //     getTasks();
-        // })
         .catch(error => {
             console.log(error);
         });
 
         document.getElementById('userInput').value = '';
-    }
+    } 
+}
+
+function deleteTask(){
+    // Visually delete the task
+    this.todos = this.todos.filter((currTodo) => currTodo != todo)
+
+    // DELETE request to delete task on database
+    fetch(`http://localhost:3000/api/tasks/${currTodo.id}`, {
+        method: 'DELETE'
+    }).then(response => response.json())
 }
