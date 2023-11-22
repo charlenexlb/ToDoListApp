@@ -61,7 +61,7 @@ document.addEventListener('alpine:init', () => {
         
         deleteTask(todo){
             // Visually delete the task
-            this.todos.splice(todo.index, 1)
+            this.todos.splice(this.todos.indexOf(todo), 1);
         
             const id = todo._id;
         

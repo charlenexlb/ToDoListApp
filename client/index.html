@@ -17,7 +17,7 @@
           <input id="userInput" x-model="userInput" placeholder="Enter task.." type="text">
           <button id="addBtn" @click="$store.toDos.addTask()">Add</button>
 
-        <template x-for="( todo, index) in $store.toDos.todos" :key="index">
+        <template x-for="todo in $store.toDos.todos">
           <div class="todoList">
             <input id="checkbox" type="checkbox" @change="$store.toDos.checkTask(todo)" x-model="todo.completed">
             <span id="taskItem" x-text="todo.name" x-bind:class="{'completed': todo.completed}"></span>
