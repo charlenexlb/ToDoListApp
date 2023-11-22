@@ -6,6 +6,7 @@ function addTask(){
         return;
     } else {
 
+
         this.todos.push({
             name: userInput,
             isComplete: false
@@ -31,12 +32,36 @@ function addTask(){
     } 
 }
 
-function deleteTask(){
+function deleteTask(id){
     // Visually delete the task
-    this.todos = this.todos.filter((currTodo) => currTodo != todo)
+    // this.todos.splice(this.index, 1)
+
+    // const id = this.todo.id;
+    // const todo = document.getElementById("taskItem");
 
     // DELETE request to delete task on database
-    fetch(`http://localhost:3000/api/tasks/${currTodo.id}`, {
-        method: 'DELETE'
+    fetch(`http://localhost:3000/api/tasks/` + id, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        }
     }).then(response => response.json())
+    .catch(error => {
+        console.log(error);
+    });
+}
+
+function loadAllTodos(){
+
+    // GET request to retrieve all tasks from database
+    fetch('http://localhost:3000/api/tasks')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(task => {
+            this.todos.push({
+                name: task.title,
+                isComplete: task.checked
+            });
+        });
+    })
 }

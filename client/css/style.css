@@ -56,7 +56,7 @@
 .todoList{
     padding-top: 30px;
 }
-#taskItem{
+.taskItem{
     background-color: #EADBC8;
     margin-right: 30px;
     cursor: pointer;

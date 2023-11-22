@@ -8,7 +8,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <title>To Do List</title>
   </head>
-  <body>
+  <body onload="loadAllTodos()">
     <div class="todo-app">
       <h2>To-Do List</h2>
       <hr class="divider">
@@ -21,7 +21,7 @@
           <div class="todoList">
             <input id="checkbox" type="checkbox" x-model="todo.completed">
             <span id="taskItem" x-text="todo.name" x-bind:class="{'completed': todo.completed}"></span>
-            <button id="deleteBtn" @click="deleteTask">X</button>
+            <button id="deleteBtn" @click="deleteTask($el.dataset.id)">X</button>
           </div>
         </template>
 
