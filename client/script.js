@@ -1,3 +1,21 @@
+function loadAllTodos(){
+
+    // GET request to retrieve all tasks from database
+    fetch('http://localhost:3000/api/tasks')
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(task => {
+           Alpine.store('todos', todos => {
+               todos.push({
+                   name: task.title,
+                   isComplete: task.checked,
+                   _id: task._id
+               });
+           });
+    });
+    });
+}
+
 function addTask(){
     const userInput = document.getElementById('userInput').value;
 
@@ -6,11 +24,7 @@ function addTask(){
         return;
     } else {
 
-
-        this.todos.push({
-            name: userInput,
-            isComplete: false
-        });
+        visuallyDisplayTask(this.todos, userInput);
 
         // POST request to the server
         const task = {
@@ -24,6 +38,9 @@ function addTask(){
             },
             body: JSON.stringify(task)
         }).then(response => response.json())
+        .then(data => {
+            this.todos[this.todos.length - 1]._id = data._id;
+        })
         .catch(error => {
             console.log(error);
         });
@@ -32,12 +49,19 @@ function addTask(){
     } 
 }
 
-function deleteTask(id){
-    // Visually delete the task
-    // this.todos.splice(this.index, 1)
+function visuallyDisplayTask(todos, userInput){
+    todos.push({
+        name: userInput,
+        isComplete: false,
+        _id: ''
+    });
+}
 
-    // const id = this.todo.id;
-    // const todo = document.getElementById("taskItem");
+function deleteTask(todo, todos){
+    // Visually delete the task
+    todos.splice(todo.index, 1)
+
+    const id = todo._id;
 
     // DELETE request to delete task on database
     fetch(`http://localhost:3000/api/tasks/` + id, {
@@ -45,23 +69,8 @@ function deleteTask(id){
         headers: {
             'Content-Type': 'application/json'
         }
-    }).then(response => response.json())
+    }).then(response => console.log(response.json()))
     .catch(error => {
         console.log(error);
     });
-}
-
-function loadAllTodos(){
-
-    // GET request to retrieve all tasks from database
-    fetch('http://localhost:3000/api/tasks')
-    .then(response => response.json())
-    .then(data => {
-        data.forEach(task => {
-            this.todos.push({
-                name: task.title,
-                isComplete: task.checked
-            });
-        });
-    })
 }

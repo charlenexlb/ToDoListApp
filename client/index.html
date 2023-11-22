@@ -13,15 +13,15 @@
       <h2>To-Do List</h2>
       <hr class="divider">
 
-      <div x-data="{ todos: [], userInput: ''}">
+      <div class="flex_item" x-data="{ todos: [], userInput: ''}">
           <input id="userInput" x-model="userInput" placeholder="Enter task.." type="text">
           <button id="addBtn" @click="addTask">Add</button>
 
-        <template x-for="todo in todos">
+        <template x-for="( todo, index) in todos" :key="index">
           <div class="todoList">
             <input id="checkbox" type="checkbox" x-model="todo.completed">
             <span id="taskItem" x-text="todo.name" x-bind:class="{'completed': todo.completed}"></span>
-            <button id="deleteBtn" @click="deleteTask($el.dataset.id)">X</button>
+            <button id="deleteBtn" @click="deleteTask(todo, todos)"><img src="../images/deleteButton.png" alt="Button Image"></button>
           </div>
         </template>
 

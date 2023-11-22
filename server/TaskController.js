@@ -54,7 +54,7 @@ router.delete("/tasks/:id", async (req, res) => {
     try {
         const task = await TaskModel.findByIdAndDelete(req.params.id);
         if(!task){
-            return res.status(404).send("Task was not found")
+            return res.status(404).send({error: "Task not found!"})
         }
         res.status(204).send()
     } catch(error){

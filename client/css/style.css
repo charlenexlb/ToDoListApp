@@ -1,3 +1,13 @@
+body{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: #f4eae084;
+    font-family: 'Roboto', sans-serif;
+}
 .todo-app{
     background-color: #F4EAE0;
     max-width: 540px;
@@ -5,17 +15,25 @@
     padding: 40px 30px;
     border-radius: 10px;
 }
+
+@media only screen and (max-width: 768px){
+    .todo-app{
+        flex: 2;
+    }
+}
+
 .todo-app h2{
     text-align: center;
 }
 .divider{
     position: relative;
     top: 20px;
-        border: none;
-        height: 1px;
-        background: black;
-        margin-bottom: 50px;
-        border-top: 3px double #8c8b8b;
+    border: none;
+    height: 1px;
+    background: black;
+    margin-bottom: 50px;
+    border-top: 3px double #8c8b8b;
+    width: 100%;
 }
 #userInput{
     margin: 0px 0px 0px 250px;
@@ -39,19 +57,24 @@
 }
 #addBtn:hover{
     background-color: #EBE3D5;
-}
+}   
 #deleteBtn{
-    margin-right: 20px;
-    background-color: #FAF6F0;
+    margin-left: 15px;
+    background: transparent;
     cursor: pointer;
     width: 25px;
     height: 25px;
-    border: 1px solid #B0A695;
     border-radius: 5px;
-    background-color: #FAF6F0;
+    padding-right: 15px;
+    outline: none;
+    border: none;
 }
 #deleteBtn:hover{
     background-color: #EBE3D5;
+}
+#deleteBtn img{
+    width: 15px;
+    height: 20px;
 }
 .todoList{
     padding-top: 30px;
