@@ -8,20 +8,20 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
     <title>To Do List</title>
   </head>
-  <body onload="loadAllTodos()">
+  <body onload="Alpine.store('toDos').loadAllTodos()">
     <div class="todo-app">
       <h2>To-Do List</h2>
       <hr class="divider">
 
-      <div class="flex_item" x-data="{ todos: [], userInput: ''}">
+      <div class="flex_item" x-data :class="$store.toDos.todos && 'userInput'">
           <input id="userInput" x-model="userInput" placeholder="Enter task.." type="text">
-          <button id="addBtn" @click="addTask">Add</button>
+          <button id="addBtn" @click="$store.toDos.addTask()">Add</button>
 
-        <template x-for="( todo, index) in todos" :key="index">
+        <template x-for="( todo, index) in $store.toDos.todos" :key="index">
           <div class="todoList">
-            <input id="checkbox" type="checkbox" x-model="todo.completed">
+            <input id="checkbox" type="checkbox" @change="$store.toDos.checkTask(todo)" x-model="todo.completed">
             <span id="taskItem" x-text="todo.name" x-bind:class="{'completed': todo.completed}"></span>
-            <button id="deleteBtn" @click="deleteTask(todo, todos)"><img src="../images/deleteButton.png" alt="Button Image"></button>
+            <button id="deleteBtn" @click="$store.toDos.deleteTask(todo)"><img src="../images/deleteButton.png" alt="Button Image"></button>
           </div>
         </template>
 

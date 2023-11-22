@@ -14,14 +14,9 @@ body{
     margin: 100px auto 20px;
     padding: 40px 30px;
     border-radius: 10px;
+    box-shadow: 0 2px 4px black;
+    min-height: 50vh;
 }
-
-@media only screen and (max-width: 768px){
-    .todo-app{
-        flex: 2;
-    }
-}
-
 .todo-app h2{
     text-align: center;
 }
@@ -85,7 +80,7 @@ body{
     cursor: pointer;
     font-size: 15px;
     padding: 10px 30px 10px 20px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 #checkbox{
     margin-right: 20px;
