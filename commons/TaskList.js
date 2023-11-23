@@ -1,7 +1,9 @@
-// class TaskList{
-//     Task;
+const mongoose = require('mongoose')
 
-//     constructor(Task){
-//         this.Task = Task;
-//     }
-// }
+const TaskListSchema = new mongoose.Schema({
+    tasks: {
+        type: Array
+    }
+});
+
+module.exports = mongoose.model("TaskList", TaskListSchema)

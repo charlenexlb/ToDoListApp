@@ -1,5 +1,4 @@
 const express = require("express");
-const bodyParser = require("body-parser");
 const { connectDB } = require("./database.js");
 const TaskController = require("./TaskController.js");
 const cors = require('cors');
@@ -8,10 +7,6 @@ const cors = require('cors');
 const app = express();
 
 app.use(cors())
-
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 
 app.use(express.urlencoded({ extended: true}))
 

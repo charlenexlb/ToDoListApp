@@ -22,7 +22,7 @@ app.whenReady().then(() => {
     })
 })
 
-//listens to window-all-closed event and quits the app is user not on macOS
+//Listens to window-all-closed event and quits the app is user not on macOS
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') app.quit()
 })

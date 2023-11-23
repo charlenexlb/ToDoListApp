@@ -21,7 +21,7 @@ document.addEventListener('alpine:init', () => {
             document.getElementById('userInput').value = '';
         },
 
-        addTask(){
+        addTodo(){
             const userInput = document.getElementById('userInput').value;
         
             if(userInput.trim().length == 0){
@@ -32,7 +32,7 @@ document.addEventListener('alpine:init', () => {
                 //Visually display the task
                 this.todos.push({
                     name: userInput,
-                    isComplete: false,
+                    completed: false,
                     _id: ''
                 });
         
@@ -59,7 +59,7 @@ document.addEventListener('alpine:init', () => {
             } 
         },
         
-        deleteTask(todo){
+        deleteTodo(todo){
             // Visually delete the task
             this.todos.splice(this.todos.indexOf(todo), 1);
         
@@ -77,7 +77,7 @@ document.addEventListener('alpine:init', () => {
             });
         },
 
-        checkTask(todo){
+        checkTodo(todo){
             // PATCH request to update task on database
             fetch(`http://localhost:3000/api/tasks/` + todo._id, {
                 method: 'PATCH',
@@ -93,7 +93,5 @@ document.addEventListener('alpine:init', () => {
             });
         }
         
-
-
     })
 })
