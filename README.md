@@ -7,5 +7,6 @@ Furthermore, the application uses a MongoDB database.
 # How it runs
 The application consists of a client-side and a server-side part. The build script contains two commands to start either one of them.
 
-To start the server, run <npm run server>
-To start the client, run <npm run client> 
+To start the server, run '''npm run server'''
+To start the client, run '''npm run client''''
+- '''npm start''' will also start the client
